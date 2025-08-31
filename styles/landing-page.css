@@ -1,0 +1,250 @@
+ /* shared */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     scroll-behavior: smooth;
+ }
+
+
+     
+
+
+ a {
+     text-decoration: none;
+     color: inherit;
+ }
+
+ .btn {
+     padding: 0.7rem 1.5rem;
+     border-radius: 5px;
+     cursor: pointer;
+     text-decoration: none;
+     font-weight: 500;
+     transition: all 0.3s;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+ }
+
+ .section-title {
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+
+ .section-title h2 {
+     font-size: 2.5rem;
+     color: #1e3a8a;
+     margin-bottom: 1rem;
+ }
+
+ .section-title p {
+     font-size: 1.1rem;
+     color: #475569;
+ }
+
+ /* shared ends*/
+
+ /* Hero section start */
+ .hero {
+     background: url('../img/Rectangle_f.png') no-repeat;
+     background-size: cover;
+     margin: 0rem auto;
+     color: white;
+     padding: 9rem 1.8rem 5rem;
+     text-align: center;
+ }
+
+ .hero-content {
+     max-width: 800px;
+     margin: 0 auto;
+ }
+
+ .hero h1 {
+     font-size: 3.5rem;
+     margin-bottom: 1rem;
+     font-weight: 700;
+ }
+
+ .hero p {
+     font-size: 1.1rem;
+     margin-bottom: 2rem;
+ }
+
+ .hero-buttons {
+     display: flex;
+     gap: 1rem;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+
+ .btn-open-account {
+     background: #286fe2;
+     color: white;
+     border: none;
+     padding: 1rem 2rem;
+     font-size: 1.1rem;
+ }
+
+ .btn-open-account:hover {
+     background: #1c5cc4;
+     transform: translateY(-2px);
+ }
+
+ .btn-services {
+     background: transparent;
+     color: white;
+     border: 1px solid white;
+     padding: 1rem 2rem;
+     font-size: 1.1rem;
+ }
+
+ .btn-services:hover {
+     background: rgba(255, 255, 255, 0.2);
+     color: white;
+     transform: translateY(-2px);
+ }
+
+ /* hero section ends */
+
+ /* services style */
+ .services {
+     padding: 5rem 1.8rem;
+     background: #f8f9fa;
+ }
+
+ .services-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+     gap: 2rem;
+     margin-top: 3rem;
+ }
+
+ .service-card {
+     background: white;
+     padding: 2rem;
+     border-radius: 10px;
+     box-shadow: 0 5px 20px #3b82f61a;
+     border-top: 8px solid #3b82f6;
+     transition: transform 0.3s;
+     overflow: hidden;
+     height: 100%;
+ }
+
+
+
+ .service-card:hover {
+     transform: translateY(-5px);
+ }
+
+ .service-icon {
+     width: 60px;
+     height: 60px;
+     background: #3b82f6;
+     border-radius: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 1rem;
+     font-size: 1.5rem;
+
+ }
+
+ .service-card h3 {
+     color: #1e3a8a;
+     margin-bottom: 1rem;
+     font-size: 1.3rem;
+     font-weight: 600;
+ }
+
+ /* service style ends */
+
+
+ /* why choose us section start */
+ .why-choose-us {
+     padding: 5rem 1.8rem;
+ }
+
+ .Choosing-reasons-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+     gap: 2rem 6rem;
+     align-items: stretch;
+ }
+
+ .reason-card {
+     background: #f3f7fd;
+     padding: 2rem;
+     border-radius: 10px;
+     box-shadow: 0 2px 10px #3b82f61a;
+     height: 100%;
+     border-left: 5px solid #3b82f6;
+ }
+
+ .reason-card-icon {
+     font-size: 1.3rem;
+     margin-bottom: 4px;
+
+ }
+
+ .reason-card h3 {
+     margin-bottom: 4px;
+     font-weight: 600;
+ }
+
+ .reason-card p {
+     color: #475569;
+ }
+
+ /* why choose us section ends */
+
+
+ /* Footer starts here */
+ .footer {
+     background: #0a2c58;
+     color: white;
+     padding: 4rem 0px 2.4rem;
+     text-align: center;
+ }
+
+ .footer-content {
+     display: flex;
+     flex-direction: column;
+     gap: 5px;
+ }
+
+ .footer-content h1 {
+     font-size: 1.9rem;
+     font-weight: 700;
+ }
+
+ .footer-content h3 {
+     font-size: 1.2rem;
+ }
+
+ .social-links {
+     display: flex;
+     gap: 1rem;
+     align-items: center;
+     justify-content: center;
+     margin: 8px 4px 0px;
+ }
+
+ .social-links img {
+     width: 40px;
+     height: 40px;
+ }
+
+ .footer-content hr {
+     margin: 1rem 0px 1.3rem;
+ }
+
+ .copyright {
+     font-size: .9rem;
+     color: rgb(199, 199, 199);
+ }
+
+ /* Footer ends */

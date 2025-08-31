@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interest Calculator</title>
+  <link rel="stylesheet" href="Interest_cal.css">
+</head>
+<body>
+  <header>
+    <h1>Interest Calculator</h1>
+  </header>
+
+  <main>
+    <section class="calculator">
+      <form>
+        <div class="form-group">
+          <label for="principal">Principal Amount (৳)</label>
+          <input type="text" id="principal" placeholder="Enter amount">
+          <div id="errorPrincipal" class="error" style="color:red;font-size:0.9rem;"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="rate">Interest Rate (%)</label>
+          <input type="text" id="rate" placeholder="Enter rate">
+          <div id="errorRate" class="error" style="color:red;font-size:0.9rem;"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="time">Time (Years)</label>
+          <input type="text" id="time" placeholder="Enter years">
+          <div id="errorTime" class="error" style="color:red;font-size:0.9rem;"></div>
+        </div>
+
+        <button type="submit">Calculate</button>
+      </form>
+    </section>
+
+    <section class="result">
+      <h2>Result</h2>
+      <p>Interest: —</p>
+      <p>Total Amount: —</p>
+    </section>
+  </main>
+
+  <script src="Interest_cal.js"></script>
+</body>
+</html>

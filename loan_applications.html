@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Application</title>
+  <link rel="stylesheet" href="loan_application.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Loan Application Portal</h1>
+  </header>
+
+  <!-- Loan Selector -->
+  <section class="loan-selector">
+    <h2>Select a Loan</h2>
+    <div class="loan-grid">
+      <div class="loan-card">
+        <h3>Personal Loan</h3>
+        <p><i class="fa-solid fa-percent"></i> Interest: 12%</p>
+        <p><i class="fa-solid fa-money-bill"></i> Max: $20,000</p>
+        <p><i class="fa-solid fa-calendar"></i> Tenure: 5 years</p>
+        <button>Compare</button>
+      </div>
+      <div class="loan-card">
+        <h3>Car Loan</h3>
+        <p><i class="fa-solid fa-percent"></i> Interest: 8%</p>
+        <p><i class="fa-solid fa-money-bill"></i> Max: $50,000</p>
+        <p><i class="fa-solid fa-calendar"></i> Tenure: 7 years</p>
+        <button>Compare</button>
+      </div>
+      <div class="loan-card">
+        <h3>Home Loan</h3>
+        <p><i class="fa-solid fa-percent"></i> Interest: 6%</p>
+        <p><i class="fa-solid fa-money-bill"></i> Max: $200,000</p>
+        <p><i class="fa-solid fa-calendar"></i> Tenure: 20 years</p>
+        <button>Compare</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Document Upload -->
+  <section class="doc-upload">
+    <h2>Upload Documents</h2>
+    <div class="upload-box">
+      <label>ID Proof</label>
+      <input type="file" id="idProof">
+      <div class="error" id="errorId" style="color:red;font-size:0.9rem;"></div>
+    </div>
+    <div class="upload-box">
+      <label>Address Proof</label>
+      <input type="file" id="addressProof">
+      <div class="error" id="errorAddress" style="color:red;font-size:0.9rem;"></div>
+    </div>
+    <div class="upload-box">
+      <label>Income Proof</label>
+      <input type="file" id="incomeProof">
+      <div class="error" id="errorIncome" style="color:red;font-size:0.9rem;"></div>
+    </div>
+  </section>
+
+  <!-- Status Tracker -->
+  <section class="status-tracker">
+    <h2>Application Status</h2>
+    <ul class="status-list">
+      <li class="done">Application Submitted</li>
+      <li class="done">Documents Verified</li>
+      <li>Credit Check</li>
+      <li>Loan Agreement Pending</li>
+      <li>Loan Approved / Disbursed</li>
+    </ul>
+    <button class="esign">E-Sign Agreement</button>
+  </section>
+
+  <!-- JS -->
+  <script src="loan_application.js"></script>
+
+</body>
+</html>
