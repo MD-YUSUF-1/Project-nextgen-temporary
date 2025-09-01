@@ -6,36 +6,34 @@
 ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/transaction-styles.css">
-    <link rel="stylesheet" href="./styles/Font.css">
+    <link rel="stylesheet" href="../assets/styles/Activity.css">
+    <link rel="stylesheet" href="../assets/styles/Font.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Transaction History</title>
+    <title>Activity Log</title>
 </head>
 <style>
-    
+
 </style>
 
 <body>
     <header>
         <div class="back-container">
-            <a href="./index.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
+            <a href="../index.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
                 </button></a>
         </div>
         <!-- Banner section -->
         <section class="container">
             <div class="banner">
-                <h1> Transaction History</h1>
-                <p>View and manage your account transactions details</p>
+                <h1> Activity Log</h1>
+                <p>Track all recent actions on your account in one place. </p>
             </div>
         </section>
     </header>
@@ -53,78 +51,55 @@
                             <label for="to-date">To date</label>
                             <input type="date" id="to-date" class="filter-input">
                         </div>
-                        <div class="filter-fields">
-                            <label for="transaction-type">Transaction Type</label>
-                            <select id="transaction-type" class="filter-input">
-                                <option value="">All Types</option>
-                                <option value="debit">Debit</option>
-                                <option value="credit">Credit</option>
-                                <option value="transfer">Transfer</option>
-                            </select>
-                        </div>
-                        <div class="filter-fields">
-                            <label for="amount-range">Amount Range</label>
-                            <select id="amount-range" class="filter-input">
-                                <option value="">All Amounts</option>
-                                <option value="0-100">$0 - $100</option>
-                                <option value="101-500">$101 - $500</option>
-                                <option value="501-1000">$501 - $1,000</option>
-                                <option value="1000+">$1,000+</option>
+                        <div class="filter-fields" style="grid-column: 1/span 2;">
+                            <label for="activity-type">Action</label>
+                            <select id="activity-type" class="filter-input">
+                                <option value="">All Actions</option>
+                                <option value="login">Login</option>
+                                <option value="transfer">Fund Transfer</option>
+                                <option value="bill">Bill Payment</option>
+                                <option value="card">Card Management</option>
+                                <option value="profile">Profile Update</option>
+                                <option value="security">Security Alert</option>
+                                <option value="export">Data Export</option>
+                                <option value="deposit">Deposit</option>
                             </select>
                         </div>
                     </div>
                     <p id="filter-error" class="error"></p>
-                    <div>
+                    <div class="action-buttons">
                         <button type="submit" class="btn apply-btn">
                             <i class="fa-solid fa-filter"></i> Apply Filters
                         </button>
-
-                    </div>
-                </form>
-                <form action="" onsubmit="return validateSearch(event)">
-                    <div class="search-bar">
-                        <label for="search-input">Search Transactions by Description and Status</label>
-                        <input type="search" id="search-input" class="search-input" placeholder="Search here...">
-                    </div>
-                    <p id="search-error" class="error"></p>
-                    <div class="action-buttons">
-                        <button type="submit" class="btn secondary-btn">
-                            <i class="fa-solid fa-search"></i> Search
-                        </button>
-                        <button type="button" class="btn secondary-btn" onclick="resetEverything()">
+                        <button type="button" class="btn btn-reset" onclick="resetEverything()">
                             <i class="fa-solid fa-rotate-left"></i>Reset
-                        </button>
-                        <button type="button" class="btn secondary-btn">
-                            <i class="fa-solid fa-file-csv"></i> Export CSV
                         </button>
                     </div>
                 </form>
             </div>
         </section>
 
-        <!-- Transactions section -->
+        <!-- activity section -->
         <section>
-            <div class="transaction-table">
-                <div class="transaction-heading">
-                    <h3>Recent Transactions</h3>
-                    <div class="transaction-count">
-                        <i class="fa-solid fa-list"></i> <span id="transaction-count">0</span> transaction
+            <div class="activity-table">
+                <div class="activity-heading">
+                    <h3>Recent activity</h3>
+                    <div class="activity-count">
+                        <i class="fa-solid fa-list"></i> <span id="activity-count">0</span> activity
                     </div>
                 </div>
                 <div class="table-data">
                     <table>
                         <thead>
                             <tr>
+                                <th>Time</th>
                                 <th>Date</th>
-                                <th>Description</th>
-                                <th>Type</th>
-                                <th>Amount</th>
-                                <th>Balance</th>
-                                <th>Status</th>
-                                <th>Transaction ID</th>
+                                <th>Details</th>
+                                <th>Action</th>
+
                             </tr>
                         </thead>
-                        <tbody id="transaction-table-body">
+                        <tbody id="activity-table-body">
 
 
 
@@ -133,7 +108,7 @@
                     </table>
                     <div class="pagination-container">
                         <div class="pagination-info">
-                            Showing 1-4 of 100 transactions
+                            Showing 1-4 of 100 activity
                         </div>
                         <div class="pagination-controls">
                             <button class="page-btn">
@@ -156,7 +131,7 @@
     <footer>
 
     </footer>
-    <script src="./Js/TransitionHistory.js"></script>
+    <script src="../controller/Activity.js"></script>
 </body>
 
 </html>

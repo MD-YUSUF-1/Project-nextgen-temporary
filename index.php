@@ -19,8 +19,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextGen Bank Home </title>
-    <link rel="stylesheet" href="./styles/landing-page.css">
-    <link rel="stylesheet" href="./styles/Font.css">
+    <link rel="stylesheet" href="./assets/styles/landing-page.css">
+    <link rel="stylesheet" href="./assets/styles/Font.css">
     <style>
        
     </style>
@@ -33,9 +33,9 @@
                 <div class="logo">NextGen Bank</div>
                 <div class="nav-menu">
                     <a href="">Home</a>
-                    <a href="./Transaction-History.php">Transactions</a>
-                    <a href="./loan_applications.html">Loan application</a>
-                    <a href="./Activity-log.php">Activity Log</a>
+                    <a href="./view/Transaction-History.php">Transactions</a>
+                    <a href="./view/Activity-log.php">Activity Log</a>
+                    <a href="">About</a>
                     <a href="">About</a>
                     <a href="">About</a>
 
@@ -125,7 +125,7 @@
                         </div>
                     </a>
 
-                    <a href="./Interest_cal.html">
+                    <a href="">
                         <div class="service-card">
                             <div class="service-icon">🪙</div>
                             <h3>Interest Calculator</h3>
