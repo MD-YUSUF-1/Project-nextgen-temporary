@@ -1,3 +1,13 @@
+<?php 
+    // session_start();
+    // if (!isset($_SESSION["status"])) {
+    //     header("location: login.html?error=badrequest");
+    // }
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,17 +22,13 @@
     <title>Transaction History</title>
 </head>
 <style>
-    .error {
-        margin-bottom: 10px;
-        color: red;
-        font-size: .9rem;
-    }
+    
 </style>
 
 <body>
     <header>
         <div class="back-container">
-            <a href="./index.html"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
+            <a href="./index.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
                 </button></a>
         </div>
         <!-- Banner section -->
@@ -68,16 +74,16 @@
                         </div>
                     </div>
                     <p id="filter-error" class="error"></p>
-                    <div class="action-buttons">
+                    <div>
                         <button type="submit" class="btn apply-btn">
                             <i class="fa-solid fa-filter"></i> Apply Filters
                         </button>
-                   
+
                     </div>
                 </form>
                 <form action="" onsubmit="return validateSearch(event)">
                     <div class="search-bar">
-                        <label for="search-input">Search Transactions by Status</label>
+                        <label for="search-input">Search Transactions by Description and Status</label>
                         <input type="search" id="search-input" class="search-input" placeholder="Search here...">
                     </div>
                     <p id="search-error" class="error"></p>
@@ -119,7 +125,7 @@
                             </tr>
                         </thead>
                         <tbody id="transaction-table-body">
-                            
+
 
 
 

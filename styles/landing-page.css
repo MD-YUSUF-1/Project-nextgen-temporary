@@ -47,6 +47,58 @@
 
  /* shared ends*/
 
+ /* navbar */
+  .nav {
+            background: linear-gradient(135deg, #081238 0%, #2d3968 100%);
+            color: white;
+            padding: 1.3rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a:hover{
+            opacity: 0.8;
+        }
+
+        .authentication-btn {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .btn-auth{
+            border: 1px solid white;
+        }
+        .btn-auth:hover, .username:hover{
+            background: rgba(138, 139, 153, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0px 0px 5px 2px #99a0c5 ;
+        }
+        .username{
+            border: 1px solid white;
+            border-radius: 100%;
+            padding: 1rem;
+        }
+
  /* Hero section start */
  .hero {
      background: url('../img/Rectangle_f.png') no-repeat;

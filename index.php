@@ -1,3 +1,17 @@
+
+<?php 
+    session_start();
+    // $_SESSION["status"] = 1;
+    // $_SESSION["username"] = "Yusuf";
+    // unset($_SESSION["status"]);
+    // unset($_SESSION["username"]);
+
+
+   
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,48 +22,7 @@
     <link rel="stylesheet" href="./styles/landing-page.css">
     <link rel="stylesheet" href="./styles/Font.css">
     <style>
-        .nav {
-            background: linear-gradient(135deg, #081238 0%, #2d3968 100%);
-            color: white;
-            padding: 1.3rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .authentication-btn {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .btn-auth{
-            border: 1px solid white;
-        }
-        .btn-auth:hover{
-            background: rgba(138, 139, 153, 0.5);
-            transform: translateY(-2px);
-            box-shadow: 0px 0px 5px 2px #99a0c5 ;
-        }
-
+       
     </style>
 </head>
 
@@ -60,17 +33,25 @@
                 <div class="logo">NextGen Bank</div>
                 <div class="nav-menu">
                     <a href="">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="./Transaction-History.html">Transactions</a>
+                    <a href="./Transaction-History.php">Transactions</a>
                     <a href="./loan_applications.html">Loan application</a>
-                    <a href="">About</a>
+                    <a href="./Activity-log.php">Activity Log</a>
                     <a href="">About</a>
                     <a href="">About</a>
 
                 </div>
                 <div class="authentication-btn">
-                    <a href="./login.html" class="btn btn-auth ">Login</a>
-                    <a href="" class="btn btn-auth">Sign Up</a>
+                    <!-- php -->
+                    <?php 
+                    if (isset($_SESSION["status"])) {
+                        echo "<a href=\"\" class=\" btn username\">".$_SESSION['username']."</a>";
+                        echo "<a href=\"\" class=\"btn btn-auth \">Logout</a>";
+                    }
+                    else{
+                        echo "<a href=\"\" class=\"btn btn-auth \">Login</a>";
+                    }
+                    ?>
+                    <!-- php -->
                 </div>
             </div>
         </nav>

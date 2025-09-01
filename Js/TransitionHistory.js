@@ -1,4 +1,4 @@
-const transactions = [
+let transactions = [
     {
         date: '2024-08-09',
         description: 'Direct Deposit - Salary',
@@ -172,8 +172,9 @@ function validateSearch(e) {
 
     for (let i = 0; i < transactions.length; i++) {
         const transaction = transactions[i];
-        transactionStatus = transaction.status.toLowerCase();
-        if (transactionStatus.indexOf(searchInput) !== -1) {
+        transactionText = (transaction.description +' '+ transaction.status).toLowerCase();
+        // console.log(transactionText);
+        if (transactionText.indexOf(searchInput) !== -1) {
             filteredTransactions.push(transaction);
         }
     }
@@ -181,7 +182,7 @@ function validateSearch(e) {
     loadTransactionData();
     updateTransactionCount();
 
-    console.log(searchInput);
+    // console.log(searchInput);
    
 
     document.getElementById("search-input").value = "";
@@ -196,6 +197,8 @@ function resetEverything() {
     document.getElementById("transaction-type").value = ""
     document.getElementById("amount-range").value = ""
     document.getElementById("search-input").value = "";
+    document.getElementById("search-error").innerHTML=""
+    document.getElementById("filter-error").innerHTML=""
     filteredTransactions = [];
     for (let i = 0; i < transactions.length; i++) {
         filteredTransactions.push(transactions[i]);
