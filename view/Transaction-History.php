@@ -43,7 +43,7 @@
         <!-- Filter section -->
         <section>
             <div class="filter-section">
-                <form onsubmit="return applyFilter(event)">
+                <form  onsubmit="return applyFilter(event)">
                     <div class="filters-container">
                         <div class="filter-fields">
                             <label for="from-date">From date</label>
