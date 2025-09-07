@@ -6,8 +6,8 @@
     // unset($_SESSION["status"]);
     // unset($_SESSION["username"]);
 
-
-   
+    $_SESSION['u_id']=3;
+    // session_destroy();
 ?>
 
 
@@ -35,7 +35,7 @@
                     <a href="">Home</a>
                     <a href="./view/Transaction-History.php">Transactions</a>
                     <a href="./view/Activity-log.php">Activity Log</a>
-                    <a href="">About</a>
+                    <a href="./view/Cards.html">Cards</a>
                     <a href="">About</a>
                     <a href="">About</a>
 
@@ -43,7 +43,7 @@
                 <div class="authentication-btn">
                     <!-- php -->
                     <?php 
-                    if (isset($_SESSION["status"])) {
+                    if (isset($_SESSION['username'])) {
                         echo "<a href=\"\" class=\" btn username\">".$_SESSION['username']."</a>";
                         echo "<a href=\"\" class=\"btn btn-auth \">Logout</a>";
                     }

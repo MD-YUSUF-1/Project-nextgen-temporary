@@ -1,8 +1,37 @@
-<?php 
-    // session_start();
-    // if (!isset($_SESSION["status"])) {
-    //     header("location: login.html?error=badrequest");
-    // }
+<?php
+session_start();
+require_once('../model/activityLogModel.php');
+
+$_SESSION["status"] = true;
+if (!isset($_SESSION["status"])) {
+    header("location: login.html?error=badrequest");
+}
+
+$activityLogs = [];
+$errors = "";
+
+
+if (isset($_SESSION['filtered_acitivities'])) {
+    $activities = $_SESSION['filtered_acitivities'];
+    $appliedFilters = $_SESSION['applied_filters'];
+    $isFiltered = $_SESSION['show_filtered_message'];
+} else {
+    $activities = getActivitesById($_SESSION["u_id"]);
+    $isFiltered = false;
+}
+
+if (isset($_GET['error'])) {
+    if ($_GET['error'] === 'select_filter') {
+        $errors = "Please select a filter type";
+    } elseif ($_GET['error'] === 'both_dates') {
+        $errors = "Please select a Both date";
+    } elseif ($_GET['error'] === 'date_exceed') {
+        $errors = "To date cannot exceed current date";
+    } elseif ($_GET['error'] === 'date_order') {
+        $errors = "To date must be after From date";
+    }
+}
+
 ?>
 
 
@@ -41,19 +70,19 @@
         <!-- Filter section -->
         <section>
             <div class="filter-section">
-                <form onsubmit="return applyFilter(event)">
+                <form action="../controller/activityCheck.php" method="get" onsubmit="return applyFilter()">
                     <div class="filters-container">
                         <div class="filter-fields">
                             <label for="from-date">From date</label>
-                            <input type="date" id="from-date" class="filter-input">
+                            <input name="from_date" type="date" id="from-date" class="filter-input">
                         </div>
                         <div class="filter-fields">
                             <label for="to-date">To date</label>
-                            <input type="date" id="to-date" class="filter-input">
+                            <input name="to_date" type="date" id="to-date" class="filter-input">
                         </div>
                         <div class="filter-fields" style="grid-column: 1/span 2;">
                             <label for="activity-type">Action</label>
-                            <select id="activity-type" class="filter-input">
+                            <select name="action" id="activity-type" class="filter-input">
                                 <option value="">All Actions</option>
                                 <option value="login">Login</option>
                                 <option value="transfer">Fund Transfer</option>
@@ -62,19 +91,26 @@
                                 <option value="profile">Profile Update</option>
                                 <option value="security">Security Alert</option>
                                 <option value="export">Data Export</option>
-                                <option value="deposit">Deposit</option>
                             </select>
                         </div>
                     </div>
-                    <p id="filter-error" class="error"></p>
+                    <p id="filter-error" class="error"><?= $errors ? $errors : ''; ?></p>
                     <div class="action-buttons">
                         <button type="submit" class="btn apply-btn">
                             <i class="fa-solid fa-filter"></i> Apply Filters
                         </button>
-                        <button type="button" class="btn btn-reset" onclick="resetEverything()">
-                            <i class="fa-solid fa-rotate-left"></i>Reset
-                        </button>
                     </div>
+                </form>
+                <form method="post" style="display: flex; gap: 10px; align-items: center;" action="../controller/resetActivityFilter.php">
+                    <?php if ($isFiltered) { ?>
+                        <p class="applied-filters">Filters applied - Showing filtered results</p>
+                        <div>
+                            <button type="submit" class="btn reset-btn" onclick="resetEverything()">
+                                <i class="fa-solid fa-rotate-left "></i>
+                            </button>
+                        </div>
+                    <?php } ?>
+
                 </form>
             </div>
         </section>
@@ -85,7 +121,7 @@
                 <div class="activity-heading">
                     <h3>Recent activity</h3>
                     <div class="activity-count">
-                        <i class="fa-solid fa-list"></i> <span id="activity-count">0</span> activity
+                        <i class="fa-solid fa-list"></i> <?= count($activities); ?> activity
                     </div>
                 </div>
                 <div class="table-data">
@@ -100,9 +136,22 @@
                             </tr>
                         </thead>
                         <tbody id="activity-table-body">
+                            <?php if ($activities) {
+                                foreach ($activities as $activity) { ?>
+                                    <tr>
+                                        <td><?= $activity['activity_time'] ?> </td>
+                                        <td><?= $activity['activity_date'] ?> </td>
+                                        <td><?= $activity['details'] ?> </td>
+                                        <td><?= $activity['action'] ?> </td>
+                                    </tr>
+                                <?php }
+                            } else { ?>
 
+                                <tr>
+                                    <td colspan="4" style="text-align: center; padding: 40px;">No transactions found matching your criteria</td>
+                                </tr>
 
-
+                            <?php } ?>
 
                         </tbody>
                     </table>

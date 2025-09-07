@@ -8,8 +8,6 @@ if (!isset($_SESSION["status"])) {
     header("location: login.html?error=badrequest");
 }
 
-$_SESSION["u_id"] = 3;
-
 $transactions = [];
 $errors = "";
 
@@ -126,12 +124,12 @@ if (isset($_GET['error'])) {
                         </button>
                     </div>
                 </form>
-                <form method="post" style="display: flex; gap: 10px; align-items: center;" action="../controller/resetFilter.php">
+                <form method="post" style="display: flex; gap: 10px; align-items: center;" action="../controller/resetTransactionFilter.php">
                     <?php if ($isFiltered) { ?>
                         <p class="applied-filters">Filters applied - Showing filtered results</p>
                         <div>
-                            <button type="submit" class="btn reset-btn" >
-                                <i   class="fa-solid fa-rotate-left "></i>
+                            <button type="submit" class="btn reset-btn">
+                                <i class="fa-solid fa-rotate-left "></i>
                             </button>
                         </div>
                     <?php } ?>
@@ -164,18 +162,24 @@ if (isset($_GET['error'])) {
                             </tr>
                         </thead>
                         <tbody id="transaction-table-body">
-                            <?php foreach ($transactions as $transaction) { ?>
-                                <tr>
-                                    <td><?= $transaction['date'] ?> </td>
-                                    <td><?= $transaction['description'] ?> </td>
-                                    <td><?= $transaction['transaction_type'] ?> </td>
-                                    <td><?= $transaction['transaction_category'] ?> </td>
-                                    <td><?= $transaction['amount'] ?> </td>
-                                    <td><?= $transaction['remaining_balance'] ?> </td>
-                                    <td><?= $transaction['status'] ?> </td>
-                                    <td><?= $transaction['transaction_id'] ?> </td>
-                                </tr>
+                            <?php if ($transactions) {
+                                foreach ($transactions as $transaction) { ?>
+                                    <tr>
+                                        <td><?= $transaction['date'] ?> </td>
+                                        <td><?= $transaction['description'] ?> </td>
+                                        <td><?= $transaction['transaction_type'] ?> </td>
+                                        <td><?= $transaction['transaction_category'] ?> </td>
+                                        <td><?= $transaction['amount'] ?> </td>
+                                        <td><?= $transaction['remaining_balance'] ?> </td>
+                                        <td><?= $transaction['status'] ?> </td>
+                                        <td><?= $transaction['transaction_id'] ?> </td>
+                                    </tr>
 
+                                <?php }
+                            } else { ?>
+                                <tr>
+                                    <td colspan="8" style="text-align: center; padding: 40px;">No transactions found matching your criteria</td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
