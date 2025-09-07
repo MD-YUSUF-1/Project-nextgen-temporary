@@ -131,7 +131,7 @@
     <footer>
 
     </footer>
-    <script src="../controller/Activity.js"></script>
+    <script src="../assets/js/Activity.js"></script>
 </body>
 
 </html>
