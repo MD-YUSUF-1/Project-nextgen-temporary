@@ -1,13 +1,23 @@
 
 <?php 
+
     session_start();
-    // $_SESSION["status"] = 1;
-    // $_SESSION["username"] = "Yusuf";
+    $_SESSION["username"] = "Yusuf";
+    $_SESSION["status"] = true;
+    $_SESSION['u_id']=3;
+    if (!isset($_SESSION["status"])) {
+        header("location: login.html?error=badrequest");
+    }
     // unset($_SESSION["status"]);
     // unset($_SESSION["username"]);
-
-    $_SESSION['u_id']=3;
     // session_destroy();
+
+setcookie('status', true, time() + 900, '/');
+if (!isset($_COOKIE['status'])) {
+    header('location: login.html?error=badrequest');
+}
+// setcookie('status', true, time() - 30, '/');
+
 ?>
 
 

@@ -35,6 +35,9 @@ body {
     background: #3784ff;
     color: white;
     transition: all .3s;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 15px;
 }
 
 .back-btn:hover {

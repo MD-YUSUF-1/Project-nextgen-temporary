@@ -78,7 +78,8 @@ if (isset($_GET['error'])) {
         <!-- Filter section -->
         <section>
             <div class="filter-section">
-                <form action="../controller/transactionHistoryCheck.php" method="get" onsubmit="return applyFilter()">
+                <!-- <form action="../controller/transactionHistoryCheck.php" method="get" onsubmit="return applyFilter()"> -->
+                <form>
                     <div class="filters-container">
                         <div class="filter-fields">
                             <label for="from-date">From date</label>
@@ -109,21 +110,28 @@ if (isset($_GET['error'])) {
                     </div>
                     <p id="filter-error" class="error"></p>
                     <div>
-                        <button type="submit" class="btn apply-btn">
+                        <!-- <button type="submit" class="btn apply-btn"> -->
+                        <button type="button" class="btn apply-btn" onclick="applyFilter()">
                             <i class="fa-solid fa-filter"></i> Apply Filters
                         </button>
                     </div>
                 </form>
-                <form action="../controller/transactionHistoryCheck.php" method="get" onsubmit="return validateSearch()">
+                <!-- <form action="../controller/transactionHistoryCheck.php" method="get" onsubmit="return validateSearch()"> -->
+                <form>
                     <div class="search-bar">
                         <label for="search-input">Search Transactions by Description and Status</label>
                         <input name="search_Text" type="search" id="search-input" class="search-input" placeholder="Search here...">
                     </div>
                     <p id="search-error" class="error"><?= $errors ? $errors : ''; ?></p>
                     <div class="action-buttons">
-                        <button type="submit" class="btn secondary-btn">
+                        <button type="button" class="btn secondary-btn" onclick="validateSearch()">
                             <i class="fa-solid fa-search"></i> Search
                         </button>
+
+                        <button type="button" class="btn secondary-btn" onclick="resetEverything()">
+                            <i class="fa-solid fa-rotate-left "></i>Reset
+                        </button>
+
                         <button type="button" class="btn secondary-btn">
                             <i class="fa-solid fa-file-csv"></i> Export CSV
                         </button>
@@ -149,7 +157,7 @@ if (isset($_GET['error'])) {
                 <div class="transaction-heading">
                     <h3>Recent Transactions</h3>
                     <div class="transaction-count">
-                        <i class="fa-solid fa-list"></i> <?= count($transactions); ?> transaction
+                        <i class="fa-solid fa-list"></i> <span id="transaction-count"><?= count($transactions); ?></span> transaction
                     </div>
                 </div>
                 <div class="table-data">
