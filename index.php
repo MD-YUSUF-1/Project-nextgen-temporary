@@ -35,7 +35,7 @@
                     <a href="">Home</a>
                     <a href="./view/Transaction-History.php">Transactions</a>
                     <a href="./view/Activity-log.php">Activity Log</a>
-                    <a href="./view/Cards.html">Cards</a>
+                    <a href="./view/Cards.php">Cards</a>
                     <a href="">About</a>
                     <a href="">About</a>
 

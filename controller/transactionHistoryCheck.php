@@ -8,6 +8,12 @@ if (!isset($_SESSION["status"])) {
 }
 
 
+setcookie('status', true, time() + 900, '/');
+if (!isset($_COOKIE['status'])) {
+    header('location: login.html?error=badrequest');
+}
+
+
 
 $fromDate = isset($_GET['from_date']) ? trim($_GET['from_date']) : '';
 $toDate = isset($_GET['to_date']) ? trim($_GET['to_date']) : '';

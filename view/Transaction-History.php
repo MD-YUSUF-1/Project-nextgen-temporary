@@ -8,6 +8,11 @@ if (!isset($_SESSION["status"])) {
     header("location: login.html?error=badrequest");
 }
 
+setcookie('status', true, time() + 900, '/');
+if (!isset($_COOKIE['status'])) {
+    header('location: login.html?error=badrequest');
+}
+
 $transactions = [];
 $errors = "";
 
@@ -58,7 +63,7 @@ if (isset($_GET['error'])) {
 <body>
     <header>
         <div class="back-container">
-            <a href="../index.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
+            <a href="../index.php"><button class="back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
                 </button></a>
         </div>
         <!-- Banner section -->

@@ -5,6 +5,11 @@ if (!isset($_SESSION["status"])) {
     header("location: login.html?error=badrequest");
 }
 
+setcookie('status', true, time() + 900, '/');
+if (!isset($_COOKIE['status'])) {
+    header('location: login.html?error=badrequest');
+}
+
 
 unset($_SESSION['filtered_transactions']);
 unset($_SESSION['applied_filters']);

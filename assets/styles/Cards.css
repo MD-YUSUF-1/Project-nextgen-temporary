@@ -1,0 +1,192 @@
+ /* Shared */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ a {
+     text-decoration: none;
+ }
+
+ .btn {
+     border-radius: 10px;
+     cursor: pointer;
+     border: none;
+     transition: all 0.3s;
+ }
+
+ .back-container {
+     margin: 2rem 6rem;
+
+ }
+
+ .back-btn {
+     background: #3784ff;
+     color: white;
+     transition: all .3s;
+     padding: .8rem 2rem;
+     font-size: 1rem;
+ }
+
+ .back-btn:hover {
+     transform: translateY(-3px);
+     box-shadow: 0px 0px 15px #468dff;
+ }
+
+ /* hero section */
+ .hero-section {
+     background: linear-gradient(135deg, #2563eb 0%, #373fa7 100%);
+     color: white;
+     padding: 4rem 0;
+ }
+
+ .hero-section-content {
+     max-width: 1280px;
+     margin: 0 auto;
+     padding: 0 1rem;
+     text-align: center;
+ }
+
+ .hero-section h1 {
+     font-size: 2.5rem;
+     font-weight: bold;
+     margin-bottom: .8rem;
+     color: white;
+ }
+
+ .hero-section p {
+     font-size: 1.15rem;
+     color: white;
+     margin-bottom: 2rem;
+ }
+
+ .btn-user-cards {
+     background: transparent;
+     color: white;
+     border: 1px solid white;
+     padding: 1rem 2rem;
+     font-size: 1.1rem;
+ }
+
+ .btn-user-cards:hover {
+     background: rgba(255, 255, 255, 0.2);
+     color: white;
+     transform: translateY(-2px);
+     box-shadow: 0px 0px 10px 3px rgba(231, 226, 226, 0.733);
+ }
+
+
+ /* Cards container section */
+
+ .cards-section {
+     max-width: 1280px;
+     margin: 0 auto;
+     padding: 4rem 1rem;
+ }
+
+ .cards-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 2rem;
+ }
+
+ .card {
+     background: white;
+     border-radius: 12px;
+     box-shadow: 0 10px 15px 3px rgba(0, 0, 0, 0.1);
+     overflow: hidden;
+     transition: all 0.3s;
+ }
+
+ .card:hover {
+     box-shadow: 0 20px 25px 5px rgba(0, 0, 0, 0.1);
+     transform: translateY(-2px);
+ }
+
+ .card-image img {
+     max-width: 100%;
+     height: auto;
+     border-radius: 15px;
+
+ }
+
+ .card-body {
+     padding: .9rem 1.5rem;
+ }
+
+ .card-title {
+     font-size: 1.1rem;
+     font-weight: bold;
+     margin: 0 0 .5rem 0;
+ }
+
+ .card-features {
+     text-align: left;
+     padding: 0 2rem 1rem;
+     font-size: .9rem;
+     color: #333333;
+ }
+
+ .card-features li {
+     list-style: square;
+     margin: .5rem 0;
+     font-size: 0.9rem;
+ }
+
+ .card-fee {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin: .8rem 0rem;
+     padding: .7rem 0rem;
+     border-bottom: 1px solid #e5e7eb;
+     border-top: 1px solid #e5e7eb;
+ }
+
+ .fee-label {
+     color: #6b7280;
+     font-size: 1rem;
+ }
+
+ .fee-amount {
+     font-weight: bold;
+     font-size: 1.125rem;
+     color: #2563eb;
+ }
+
+ .card-btn-div {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     gap: 10px;
+     margin-top: 15px;
+ }
+
+ .apply-btn {
+     background: #3973f1;
+     color: white;
+     padding: 10px 25px;
+     border-radius: 25px;
+     border: none;
+     cursor: pointer;
+     transition: all 0.3s;
+     font-size: 1.1rem;
+ }
+
+ .apply-btn:hover {
+     background: #0f43d4;
+ }
+
+ .btn-know {
+     padding: 10px 25px;
+     border: 2px solid #6078c7;
+     border-radius: 25px;
+     transition: 0.3s;
+     color: #6078c7;
+ }
+
+ .btn-know:hover {
+     background: #162a99;
+     color: #fff;
+ }
