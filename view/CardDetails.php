@@ -12,11 +12,11 @@ setcookie('status', true, time() + 900, '/');
 if (!isset($_COOKIE['status'])) {
     header('location: login.html?error=badrequest');
 }
-$id = $_GET['id'];
+// $id = $_GET['id'];
 
-$cardFeatures = getCardFeaturesByID($id);
-$cardvouchers = getCardVouchersByID($id);
-$card = getCardByID($id);
+// $cardFeatures = getCardFeaturesByID($id);
+// $cardvouchers = getCardVouchersByID($id);
+// $card = getCardByID($id);
 
 
 // print_r($cardFeatures);
@@ -46,7 +46,7 @@ $card = getCardByID($id);
     <header class="header">
         <div class="header-content">
             <div class="back-container">
-                <a href="./Cards.html"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to
+                <a href="./Cards.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to
                         Cards
                     </button></a>
             </div>
@@ -56,36 +56,37 @@ $card = getCardByID($id);
 
     <main class="container">
         <section>
-            <div>
-                <div class="card-header">
-                    <h1 class="card-name">Khidmah Credit Card</h1>
-                    <h1 class="card-type">Credit Card</h1>
+            
+                <div id="card-header" class="card-header">
+                    <!-- <h1 class="card-name">Khidmah Credit Card</h1>
+                    <h1 class="card-type">Credit Card</h1> -->
                 </div>
+
         </section>
 
         <!-- Welcome Vouchers -->
         <section class="section">
             <h2 class="section-title">Curated Exclusive Welcome Vouchers</h2>
-            <ul class="voucher-list">
-                <?php if ($cardvouchers) {
+            <ul id="voucher-list" class="voucher-list">
+                <!-- <?php if ($cardvouchers) {
                     foreach ($cardvouchers as $cv) { ?>
 
                         <li><i class="fa-solid fa-circle list-icons"></i><?= $cv['description']; ?></li>
                 <?php }
-                } ?>
+                } ?> -->
             </ul>
         </section>
 
         <!-- Facilities -->
         <section class="section">
             <h2 class="section-title">Facilities</h2>
-            <ul class="facility-list">
-                <?php if ($cardFeatures) {
+            <ul id="feature-list" class="facility-list">
+                <!-- <?php if ($cardFeatures) {
                     foreach ($cardFeatures as $cf) { ?>
 
                         <li><i class="fa-solid fa-circle list-icons"></i><?= $cf['feature']; ?></li>
                 <?php }
-                } ?>
+                } ?> -->
             </ul>
         </section>
 
@@ -96,20 +97,26 @@ $card = getCardByID($id);
                 <tbody>
                     <tr>
                         <td><strong>Credit Limit</strong></td>
-                        <td><?= $card['credit_limit']; ?></td>
+                        <!-- <td><?= $card['credit_limit']; ?></td> -->
+                        <td id="credit-limit"></td>
+
                     </tr>
                     <tr>
                         <td><strong>Annual Fee</strong></td>
-                        <td><?= $card['annual_fee']; ?></td>
+                        <!-- <td><?= $card['annual_fee']; ?></td> -->
+                        <td id="annual-fee"></td>
                     </tr>
                     <tr>
                         <td><strong>Interest Rate</strong></td>
-                        <td><?= $card['interest_rate']; ?></td>
+                        <!-- <td><?= $card['interest_rate']; ?></td> -->
+                        <td id="inetrest-rate"></td>
                     </tr>
                 </tbody>
             </table>
         </section>
     </main>
+
+    <script src="../assets//js//cardsDetails.js"></script>
 </body>
 
 </html>

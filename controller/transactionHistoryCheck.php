@@ -31,13 +31,14 @@ $transactionType = isset($filters->transactionType) ? trim($filters->transaction
 $amountRange = isset($filters->amountRange) ? trim($filters->amountRange) : '';
 $searchText = isset($filters->searchInput) ? trim($filters->searchInput) : '';
 
-$reset = isset($filters->reset) ? trim($filters->reset) : '';
+$value = isset($filters->value) ? trim($filters->value) : '';
 
-if ($reset) {
+if ($value) {
     $allTransactions = getTransactionsById($_SESSION["u_id"]);
     echo json_encode(['allTransactions' => $allTransactions]);
     exit;
 }
+
 
 
 $errors = [];
@@ -64,7 +65,7 @@ if ($fromDate || $toDate) {
     if (strtotime($fromDate) > strtotime($toDate)) {
         // header("location: ../view/Transaction-History.php?error=date_order");
         // exit();
-        $errors[] = "To date cannot exceed current date ";
+        $errors[] = "From date cannot exceed To date ";
     }
 }
 

@@ -5,7 +5,7 @@ function loadTransaction(filters) {
 
     let data = JSON.stringify(filters);
 
-    // console.log(data);
+    console.log(data);
 
     let xhttp = new XMLHttpRequest();
     xhttp.open('POST', '../controller/transactionHistoryCheck.php', true);
@@ -14,7 +14,7 @@ function loadTransaction(filters) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            // console.log(this.responseText);
+            console.log(this.responseText);
 
             let data = JSON.parse(this.responseText);
             if (data.errors) {
@@ -127,8 +127,12 @@ function resetEverything() {
     document.getElementById("search-input").value = "";
     document.getElementById("search-error").innerHTML = ""
     document.getElementById("filter-error").innerHTML = ""
-    let reset = { reset: true }
+    let reset = { value: true }
     loadTransaction(reset);
 
 }
+
+
+loadTransaction({value : true});
+
 

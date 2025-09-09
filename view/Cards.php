@@ -16,8 +16,8 @@ if (!isset($_COOKIE['status'])) {
 $cards = [];
 $cardsFeatures = [];
 
-$cards = getAllCards();
-$cardsFeatures = getAllCardsFeatures();
+// $cards = getAllCards();
+// $cardsFeatures = getAllCardsFeatures();
 
 
 
@@ -62,7 +62,7 @@ $cardsFeatures = getAllCardsFeatures();
     <!-- Cards Section -->
     <section class="cards-section">
         <div class="cards-grid" id="cardsGrid">
-            <?php if ($cards) {
+            <!-- <?php if ($cards) {
                 foreach ($cards as $card) { ?>
                     <div class="card">
                         <div class="card-image">
@@ -89,9 +89,9 @@ $cardsFeatures = getAllCardsFeatures();
                         </div>
                     </div>
             <?php }
-            } ?>
+            } ?> -->
         </div>
-            
+        <script src="../assets/js/Cards.js"></script>
     </section>
 </body>
 

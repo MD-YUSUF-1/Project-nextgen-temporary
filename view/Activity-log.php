@@ -7,36 +7,41 @@ if (!isset($_SESSION["status"])) {
     header("location: login.html?error=badrequest");
 }
 
-setcookie('status', true, time() + 900, '/');
-if (!isset($_COOKIE['status'])) {
-    header('location: login.html?error=badrequest');
-}
+
+// session_destroy();
+
+// setcookie('status', true, time() + 900, '/');
+// if (!isset($_COOKIE['status'])) {
+//     header('location: login.html?error=badrequest');
+// }
 
 
-$activityLogs = [];
+$activities = [];
 $errors = "";
 
 
-if (isset($_SESSION['filtered_acitivities'])) {
-    $activities = $_SESSION['filtered_acitivities'];
-    $appliedFilters = $_SESSION['applied_filters'];
-    $isFiltered = $_SESSION['show_filtered_message'];
-} else {
-    $activities = getActivitesById($_SESSION["u_id"]);
-    $isFiltered = false;
-}
+// if (isset($_SESSION['filtered_acitivities'])) {
+//     $activities = $_SESSION['filtered_acitivities'];
+//     $appliedFilters = $_SESSION['applied_filters'];
+//     $isFiltered = $_SESSION['show_filtered_message'];
+// } else {
+//     $activities = getActivitesById($_SESSION["u_id"]);
+//     $isFiltered = false;
+// }
 
-if (isset($_GET['error'])) {
-    if ($_GET['error'] === 'select_filter') {
-        $errors = "Please select a filter type";
-    } elseif ($_GET['error'] === 'both_dates') {
-        $errors = "Please select a Both date";
-    } elseif ($_GET['error'] === 'date_exceed') {
-        $errors = "To date cannot exceed current date";
-    } elseif ($_GET['error'] === 'date_order') {
-        $errors = "To date must be after From date";
-    }
-}
+// print_r($activities);
+
+// if (isset($_GET['error'])) {
+//     if ($_GET['error'] === 'select_filter') {
+//         $errors = "Please select a filter type";
+//     } elseif ($_GET['error'] === 'both_dates') {
+//         $errors = "Please select a Both date";
+//     } elseif ($_GET['error'] === 'date_exceed') {
+//         $errors = "To date cannot exceed current date";
+//     } elseif ($_GET['error'] === 'date_order') {
+//         $errors = "To date must be after From date";
+//     }
+// }
 
 ?>
 
@@ -61,7 +66,7 @@ if (isset($_GET['error'])) {
 <body>
     <header>
         <div class="back-container">
-            <a href="../index.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
+            <a href="../index.php"><button class="back-btn"> <i class="fa-solid fa-arrow-left"></i> Back to home
                 </button></a>
         </div>
         <!-- Banner section -->
@@ -76,7 +81,8 @@ if (isset($_GET['error'])) {
         <!-- Filter section -->
         <section>
             <div class="filter-section">
-                <form action="../controller/activityCheck.php" method="get" onsubmit="return applyFilter()">
+                <!-- <form action="../controller/activityCheck.php" method="get" onsubmit="return applyFilter()"> -->
+                <form>
                     <div class="filters-container">
                         <div class="filter-fields">
                             <label for="from-date">From date</label>
@@ -102,20 +108,23 @@ if (isset($_GET['error'])) {
                     </div>
                     <p id="filter-error" class="error"><?= $errors ? $errors : ''; ?></p>
                     <div class="action-buttons">
-                        <button type="submit" class="btn apply-btn">
+                        <button type="button" class="btn apply-btn" onclick="applyFilter()">
                             <i class="fa-solid fa-filter"></i> Apply Filters
+                        </button>
+                        <button type="button" class="btn btn-reset" onclick="resetEverything()">
+                            <i class="fa-solid fa-rotate-left "></i>Reset
                         </button>
                     </div>
                 </form>
                 <form method="post" style="display: flex; gap: 10px; align-items: center;" action="../controller/resetActivityFilter.php">
-                    <?php if ($isFiltered) { ?>
+                    <!-- <?php if ($isFiltered) { ?>
                         <p class="applied-filters">Filters applied - Showing filtered results</p>
                         <div>
                             <button type="submit" class="btn reset-btn" onclick="resetEverything()">
                                 <i class="fa-solid fa-rotate-left "></i>
                             </button>
                         </div>
-                    <?php } ?>
+                    <?php } ?> -->
 
                 </form>
             </div>
@@ -127,7 +136,7 @@ if (isset($_GET['error'])) {
                 <div class="activity-heading">
                     <h3>Recent activity</h3>
                     <div class="activity-count">
-                        <i class="fa-solid fa-list"></i> <?= count($activities); ?> activity
+                        <i class="fa-solid fa-list"></i> <span id="data-count"><?= count($activities); ?></span> activity
                     </div>
                 </div>
                 <div class="table-data">
@@ -142,8 +151,8 @@ if (isset($_GET['error'])) {
                             </tr>
                         </thead>
                         <tbody id="activity-table-body">
-                            <?php if ($activities) {
-                                foreach ($activities as $activity) { ?>
+                            <!-- <?php if ($activities) {
+                                        foreach ($activities as $activity) { ?>
                                     <tr>
                                         <td><?= $activity['activity_time'] ?> </td>
                                         <td><?= $activity['activity_date'] ?> </td>
@@ -151,13 +160,13 @@ if (isset($_GET['error'])) {
                                         <td><?= $activity['action'] ?> </td>
                                     </tr>
                                 <?php }
-                            } else { ?>
+                                    } else { ?>
 
                                 <tr>
                                     <td colspan="4" style="text-align: center; padding: 40px;">No transactions found matching your criteria</td>
                                 </tr>
 
-                            <?php } ?>
+                            <?php } ?> -->
 
                         </tbody>
                     </table>

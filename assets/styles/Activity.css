@@ -35,6 +35,10 @@ body {
     background: #3784ff;
     color: white;
     transition: all .3s;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .back-btn:hover {
@@ -142,16 +146,16 @@ body {
     border: 2px solid #3b82f6;
     transition: all 0.3s;
 }
+.btn-reset:hover {
+    background: #3b82f6;
+    color: white;
+}
 
 .apply-btn:hover {
     box-shadow: 0 5px 15px #468dff;
     transform: translateY(-2px);
 }
 
-.btn-reset:hover {
-    background: #3b82f6;
-    color: white;
-}
 
 
 /* Table/history */

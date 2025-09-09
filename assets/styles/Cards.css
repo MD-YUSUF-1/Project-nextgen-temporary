@@ -21,13 +21,15 @@
 
  }
 
- .back-btn {
-     background: #3784ff;
-     color: white;
-     transition: all .3s;
-     padding: .8rem 2rem;
-     font-size: 1rem;
- }
+.back-btn {
+    background: #3784ff;
+    color: white;
+    transition: all .3s;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
 
  .back-btn:hover {
      transform: translateY(-3px);

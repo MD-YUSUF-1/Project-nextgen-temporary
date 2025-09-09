@@ -16,28 +16,28 @@ if (!isset($_COOKIE['status'])) {
 $transactions = [];
 $errors = "";
 
-if (isset($_SESSION['filtered_transactions'])) {
-    $transactions = $_SESSION['filtered_transactions'];
-    $appliedFilters = $_SESSION['applied_filters'];
-    $isFiltered = $_SESSION['show_filtered_message'];
-} else {
-    $transactions = getTransactionsById($_SESSION["u_id"]);
-    $isFiltered = false;
-}
+// if (isset($_SESSION['filtered_transactions'])) {
+//     $transactions = $_SESSION['filtered_transactions'];
+//     $appliedFilters = $_SESSION['applied_filters'];
+//     $isFiltered = $_SESSION['show_filtered_message'];
+// } else {
+//     $transactions = getTransactionsById($_SESSION["u_id"]);
+//     $isFiltered = false;
+// }
 
-if (isset($_GET['error'])) {
-    if ($_GET['error'] === 'select_filter_or_search') {
-        $errors = "Please select a filter type or write something in search box";
-    } elseif ($_GET['error'] === 'both_dates') {
-        $errors = "Please select a Both date";
-    } elseif ($_GET['error'] === 'date_exceed') {
-        $errors = "To date cannot exceed current date";
-    } elseif ($_GET['error'] === 'date_order') {
-        $errors = "To date must be after From date";
-    } elseif ($_GET['error'] === 'search_min_length') {
-        $errors = "Search input must be minimum 3 characters.";
-    }
-}
+// if (isset($_GET['error'])) {
+//     if ($_GET['error'] === 'select_filter_or_search') {
+//         $errors = "Please select a filter type or write something in search box";
+//     } elseif ($_GET['error'] === 'both_dates') {
+//         $errors = "Please select a Both date";
+//     } elseif ($_GET['error'] === 'date_exceed') {
+//         $errors = "To date cannot exceed current date";
+//     } elseif ($_GET['error'] === 'date_order') {
+//         $errors = "To date must be after From date";
+//     } elseif ($_GET['error'] === 'search_min_length') {
+//         $errors = "Search input must be minimum 3 characters.";
+//     }
+// }
 
 ?>
 
@@ -138,14 +138,14 @@ if (isset($_GET['error'])) {
                     </div>
                 </form>
                 <form method="post" style="display: flex; gap: 10px; align-items: center;" action="../controller/resetTransactionFilter.php">
-                    <?php if ($isFiltered) { ?>
+                    <!-- <?php if ($isFiltered) { ?>
                         <p class="applied-filters">Filters applied - Showing filtered results</p>
                         <div>
                             <button type="submit" class="btn reset-btn">
                                 <i class="fa-solid fa-rotate-left "></i>
                             </button>
                         </div>
-                    <?php } ?>
+                    <?php } ?> -->
 
                 </form>
             </div>
@@ -175,7 +175,7 @@ if (isset($_GET['error'])) {
                             </tr>
                         </thead>
                         <tbody id="transaction-table-body">
-                            <?php if ($transactions) {
+                            <!-- <?php if ($transactions) {
                                 foreach ($transactions as $transaction) { ?>
                                     <tr>
                                         <td><?= $transaction['date'] ?> </td>
@@ -193,7 +193,7 @@ if (isset($_GET['error'])) {
                                 <tr>
                                     <td colspan="8" style="text-align: center; padding: 40px;">No transactions found matching your criteria</td>
                                 </tr>
-                            <?php } ?>
+                            <?php } ?> -->
                         </tbody>
                     </table>
                     <div class="pagination-container">

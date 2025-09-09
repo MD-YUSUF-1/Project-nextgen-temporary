@@ -188,10 +188,10 @@ if (!isset($_COOKIE['status'])) {
                 <h3>Social Links</h3>
                 <div class="social-links">
 
-                    <a href="https://www.facebook.com/"><img src="./img/facebook.png" alt=""></a>
-                    <a href="https://www.linkedin.com/"><img src="./img/linkedin.png" alt=""></a>
-                    <a href="https://x.com/"><img src="./img/twitter.png" alt=""></a>
-                    <a href="https://www.youtube.com/"><img src="./img/youtube.png" alt=""></a>
+                    <a href="https://www.facebook.com/"><img src="./assets/img/facebook.png" alt=""></a>
+                    <a href="https://www.linkedin.com/"><img src="./assets/img/linkedin.png" alt=""></a>
+                    <a href="https://x.com/"><img src="./assets/img/twitter.png" alt=""></a>
+                    <a href="https://www.youtube.com/"><img src="./assets/img/youtube.png" alt=""></a>
 
                 </div>
                 <hr>
