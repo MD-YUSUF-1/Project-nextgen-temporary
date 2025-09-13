@@ -55,41 +55,14 @@ $cardsFeatures = [];
         <div class="hero-section-content">
             <h1>Choose Your Perfect Card</h1>
             <p>From basic banking to premium rewards - find the card that fits your lifestyle</p>
-            <a href="userCards.html"><button class="btn btn-user-cards">Your cards</button></a>
+            <button onclick="personalCards()" class="btn btn-user-cards">Your cards</button>
         </div>
     </section>
 
     <!-- Cards Section -->
     <section class="cards-section">
         <div class="cards-grid" id="cardsGrid">
-            <!-- <?php if ($cards) {
-                foreach ($cards as $card) { ?>
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="<?= $card['img']; ?>" alt="<?= $card['name']; ?>">
-                        </div>
-
-                        <div class="card-body">
-                            <div class="card-title"><?= $card['name']; ?></div>
-                            <ul class="card-features">
-                                <?php foreach ($cardsFeatures as $cf) {
-                                 if ($cf['card_id']===$card['card_id']) { ?>
-                                        <li><?= $cf['feature']; ?></li>
-                                <?php }
-                                } ?>
-                            </ul>
-                            <div class="card-fee">
-                                <p class="fee-label">Annual Fee</p>
-                                <p class="fee-amount"><?= $card['annual_fee']; ?></p>
-                            </div>
-                            <div class="card-btn-div">
-                                <a href="./CardDetails.php?id=<?=$card['card_id']?>" class="btn-know">KNOW MORE</a>
-                                <a href="" class="apply-btn">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-            <?php }
-            } ?> -->
+            
         </div>
         <script src="../assets/js/Cards.js"></script>
     </section>

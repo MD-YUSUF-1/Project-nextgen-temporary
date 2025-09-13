@@ -64,3 +64,18 @@ function getCardVouchersByID($id)
     }
     return $cardVouchers;
 }
+
+function getAllCardsOfUser($id)
+{
+    $con = getConnection();
+    $sql = "SELECT * from user_cards where user_id = '{$id}'";
+    $result = mysqli_query($con, $sql);
+    $userCards = [];
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        array_push($userCards, $row);
+    }
+    return $userCards;
+}
+
+

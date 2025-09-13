@@ -6,10 +6,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/styles/USerCards.css">
     <link rel="stylesheet" href="../assets/styles/Font.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
-    <title>Your Cards</title>
+    <title>My Cards - Banking System</title>
+    <style>
+
+    </style>
 </head>
-<body>
-    <h3>USerCards</h3>
+
+<body class="container">
+    <section>
+
+        <div class="back-container">
+            <a href="./Cards.php"><button class="btn back-btn"> <i class="fa-solid fa-arrow-left"></i> Back
+                </button></a>
+        </div>
+    </section>
+    <div class="container">
+        <div class="header">
+            <h1>My Cards</h1>
+            <p>Manage your debit and credit cards</p>
+        </div>
+
+
+        <div class="card-section-header">
+            <h2 class="section-title">Active Cards</h2>
+            <a href="./Cards.php" class="add-card-btn"> Apply for New Card</a>
+        </div>
+
+        <section class="cards-section">
+            <div class="cards-grid" id="cardsGrid">
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../assets/img/Cards/debit.png" alt="  card.name  ">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Classic Debit Card</div>
+                        <div class="card-status status-active">Active</div>
+
+                        <div class="card-details">
+                            <div class="detail-row">
+                                <span>Card Type:</span>
+                                <span>Debit</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Card Number:</span>
+                                <span>5452132</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Available Balance:</span>
+                                <span>$2,450.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Daily Limit:</span>
+                                <span>$1,000.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Credit Limit:</span>
+                                <span>$1,000.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Expiary Date:</span>
+                                <span>11/2030</span>
+                            </div>
+                        </div>
+
+                        <div class="card-btn-div">
+                            <a href="./CardDetails.php?id= card.card_id " class="btn-know">View Details</a>
+                            <a href="" class="apply-btn">Manage</a>
+                            <a href="" class="apply-btn">Block</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../assets/img/Cards/debit.png" alt="  card.name  ">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Classic Debit Card</div>
+                        <div class="card-status status-active">Active</div>
+
+                        <div class="card-details">
+                            <div class="detail-row">
+                                <span>Card Type:</span>
+                                <span>Debit</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Card Number:</span>
+                                <span>5452132</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Available Balance:</span>
+                                <span>$2,450.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Daily Limit:</span>
+                                <span>$1,000.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Credit Limit:</span>
+                                <span>$1,000.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Expiary Date:</span>
+                                <span>11/2030</span>
+                            </div>
+                        </div>
+
+                        <div class="card-btn-div">
+                            <a href="./CardDetails.php?id= card.card_id " class="btn-know">View Details</a>
+                            <a href="" class="apply-btn">Manage</a>
+                            <a href="" class="apply-btn">Block</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="../assets/img/Cards/debit.png" alt="  card.name  ">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">Classic Debit Card</div>
+                        <div class="card-status status-active">Active</div>
+
+                        <div class="card-details">
+                            <div class="detail-row">
+                                <span>Card Type:</span>
+                                <span>Debit</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Card Number:</span>
+                                <span>5452132</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Available Balance:</span>
+                                <span>$2,450.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Daily Limit:</span>
+                                <span>$1,000.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Credit Limit:</span>
+                                <span>$1,000.00</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>Expiary Date:</span>
+                                <span>11/2030</span>
+                            </div>
+                        </div>
+
+                        <div class="card-btn-div">
+                            <a href="./CardDetails.php?id= card.card_id " class="btn-know">View Details</a>
+                            <a href="" class="apply-btn">Manage</a>
+                            <a href="" class="apply-btn">Block</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+    <script src="../assets/js/userCards.js"></script>
 </body>
+
 </html>

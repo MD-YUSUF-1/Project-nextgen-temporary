@@ -1,14 +1,17 @@
-function loadCards(value) {
+function loadCards() {
+    let queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    // console.log(urlParams);
+
+    let id = urlParams.get('id');
+
     let cardsGrid = document.getElementById('cardsGrid');
 
-    let data = JSON.stringify(value);
-
-    console.log(data);
 
     let xhttp = new XMLHttpRequest();
-    xhttp.open('POST', '../controller/cardsCheck.php', true);
+    xhttp.open('POST','../controller/userCardsCheck.php', true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send('values=' + data);
+    xhttp.send('id=' + id);
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
@@ -16,24 +19,17 @@ function loadCards(value) {
 
             let data = JSON.parse(this.responseText);
 
-            cardsData = data.cards;
-            cardsFeature = data.features
+            let userCards = data.userCards;
 
-            // console.log(cardsData);
-            // console.log(cardsFeature);
+            console.log(userCards);
 
             cardsGrid.innerHTML = "";
 
 
 
-            for (let i = 0; i < cardsData.length; i++) {
-                const card = cardsData[i];
-                let featureGrid = "";
-                for (let i = 0; i < cardsFeature.length; i++) {
-                    if (cardsFeature[i].card_id === card.card_id) {
-                        featureGrid += '<li>' + cardsFeature[i].feature + '</li>';
-                    }
-                }
+            for (let i = 0; i < userCards.length; i++) {
+                const card = userCards[i];
+              
                 cardsGrid.innerHTML +=
                     '<div class="card">' +
                     '<div class="card-image">' +
@@ -60,11 +56,7 @@ function loadCards(value) {
     }
 }
 
-let userID = 1;
-
-function personalCards(){
-    window.location.href="./userCards.html?id="+userID;
-}
+loadCards();
 
 
-loadCards({ value: 'all' });
+
